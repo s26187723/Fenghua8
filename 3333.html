@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 28.9px; text-indent: -28.9px; font: 12.0px Menlo; color: #800080}
+    p.p2 {margin: 0.0px 0.0px 0.0px 57.8px; text-indent: -57.8px; font: 12.0px Menlo; color: #800080}
+    p.p3 {margin: 0.0px 0.0px 0.0px 28.9px; text-indent: -28.9px; font: 12.0px Menlo; color: #800080; min-height: 14.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 28.9px; text-indent: -28.9px; font: 12.0px 'PingFang TC'; color: #800080}
+    p.p5 {margin: 0.0px 0.0px 0.0px 43.3px; text-indent: -43.4px; font: 12.0px Menlo; color: #800080}
+    p.p6 {margin: 0.0px 0.0px 0.0px 72.2px; text-indent: -72.2px; font: 12.0px Menlo; color: #800080}
+    p.p7 {margin: 0.0px 0.0px 0.0px 86.7px; text-indent: -86.7px; font: 12.0px Menlo; color: #800080}
+    p.p8 {margin: 0.0px 0.0px 0.0px 101.1px; text-indent: -101.2px; font: 12.0px Menlo; color: #800080}
+    span.s1 {font-variant-ligatures: no-common-ligatures}
+    span.s2 {font: 12.0px 'PingFang TC'; font-variant-ligatures: no-common-ligatures}
+    span.s3 {font: 12.0px Menlo; font-variant-ligatures: no-common-ligatures}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">/project-root</span></p>
+<p class="p1"><span class="s1">├── index.html <span class="Apple-converted-space">          </span># </span><span class="s2">首頁（商品列表</span><span class="s1"> + </span><span class="s2">搜尋</span><span class="s1"> + </span><span class="s2">購物車小圖示</span><span class="s1"> + </span><span class="s2">語言切換器）</span></p>
+<p class="p1"><span class="s1">├── product.html <span class="Apple-converted-space">        </span># </span><span class="s2">單品頁（可複製三份：蛋餅、鐵板麵、蔥抓餅）</span></p>
+<p class="p1"><span class="s1">├── cart.html<span class="Apple-converted-space">            </span># </span><span class="s2">購物車頁</span></p>
+<p class="p1"><span class="s1">├── login.html <span class="Apple-converted-space">          </span># </span><span class="s2">登入／註冊頁</span></p>
+<p class="p1"><span class="s1">├── contact.html <span class="Apple-converted-space">        </span># </span><span class="s2">聯絡表單頁</span></p>
+<p class="p1"><span class="s1">├── css/</span></p>
+<p class="p1"><span class="s1">│ <span class="Apple-converted-space">  </span>└── styles.css <span class="Apple-converted-space">      </span># </span><span class="s2">全站共用樣式</span></p>
+<p class="p1"><span class="s1">└── js/</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>├── lang.js<span class="Apple-converted-space">          </span># </span><span class="s2">中英切換邏輯</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>├── cart.js<span class="Apple-converted-space">          </span># </span><span class="s2">購物車邏輯</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>└── search.js<span class="Apple-converted-space">        </span># </span><span class="s2">搜尋邏輯</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>/* Reset &amp; Base ----------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">* { margin:0; padding:0; box-sizing:border-box; }</span></p>
+<p class="p1"><span class="s1">body { font-family: sans-serif; line-height:1.6; color:#333; background:#fafafa; }</span></p>
+<p class="p1"><span class="s1">a { text-decoration:none; color:inherit; }</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* Layout ----------------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">.container { width:90%; max-width:1000px; margin:2rem auto; }</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* Header ----------------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">header { display:flex; justify-content: space-between; align-items:center; padding:1rem 0; }</span></p>
+<p class="p1"><span class="s1">.logo { font-size:1.5rem; font-weight:bold; }</span></p>
+<p class="p1"><span class="s1">nav ul { display:flex; gap:1rem; list-style:none; }</span></p>
+<p class="p1"><span class="s1">.lang-switch { cursor:pointer; padding:0.25rem 0.5rem; border:1px solid #333; border-radius:4px; }</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* </span><span class="s2">商品列表</span><span class="s1"> --------------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">.product-list { display:grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-top:2rem; }</span></p>
+<p class="p1"><span class="s1">.product-card { background:#fff; padding:1rem; border:1px solid #e0e0e0; border-radius:6px; display:flex; flex-direction:column; }</span></p>
+<p class="p1"><span class="s1">.product-card img { width:100%; height:auto; border-radius:4px; }</span></p>
+<p class="p1"><span class="s1">.product-card h3 { margin:0.75rem 0; font-size:1.1rem; }</span></p>
+<p class="p1"><span class="s1">.product-card .price { margin-bottom:0.75rem; font-weight:bold; }</span></p>
+<p class="p1"><span class="s1">.btn { display:inline-block; padding:0.5rem 1rem; border:1px solid #333; border-radius:4px; text-align:center; cursor:pointer; }</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* </span><span class="s2">註冊／登入／評論／表單</span><span class="s1"> ------------------------------------------------ */</span></p>
+<p class="p1"><span class="s1">.form-group { margin-bottom:1rem; }</span></p>
+<p class="p1"><span class="s1">.form-group label { display:block; margin-bottom:0.5rem; }</span></p>
+<p class="p1"><span class="s1">.form-group input, .form-group textarea { width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px; }</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* footer ----------------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">footer { text-align:center; padding:2rem 0; color:#777; }</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* </span><span class="s2">中英雙語顯示</span><span class="s1"> ----------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">.lang-en { display:none; }</span></p>
+<p class="p1"><span class="s1">html.en .lang-en { display:inline; }</span></p>
+<p class="p1"><span class="s1">html.en .lang-ch { display:none; }</span></p>
+<p class="p4"><span class="s3">// </span><span class="s1">讀取或設定語言</span></p>
+<p class="p1"><span class="s1">const setLang = (lang) =&gt; {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>document.documentElement.className = lang;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>localStorage.setItem('siteLang', lang);</span></p>
+<p class="p1"><span class="s1">};</span></p>
+<p class="p1"><span class="s1">const saved = localStorage.getItem('siteLang') || 'ch';</span></p>
+<p class="p1"><span class="s1">setLang(saved);</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p4"><span class="s3">// </span><span class="s1">綁定切換按鈕</span></p>
+<p class="p1"><span class="s1">document.querySelectorAll('.lang-switch').forEach(btn =&gt; {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>btn.addEventListener('click', () =&gt; {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const newLang = document.documentElement.classList.contains('en') ? 'ch' : 'en';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>setLang(newLang);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
+<p class="p1"><span class="s1">});</span></p>
+<p class="p1"><span class="s1">let cart = JSON.parse(localStorage.getItem('cart') || '[]');</span></p>
+<p class="p1"><span class="s1">const saveCart = () =&gt; localStorage.setItem('cart', JSON.stringify(cart));</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function addToCart(id, name, price) {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>const item = cart.find(i=&gt;i.id===id);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>if (item) item.qty++;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>else cart.push({id, name, price, qty:1});</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>saveCart();</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>alert(savedText()); // </span><span class="s2">簡單提示</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function savedText(){</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>return document.documentElement.classList.contains('en')</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>? 'Added to cart!'</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>: '</span><span class="s2">已加入購物車！</span><span class="s1">';</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// </span><span class="s2">顯示購物車數量在</span><span class="s1"> header</span></p>
+<p class="p1"><span class="s1">function updateCartCount(){</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>const count = cart.reduce((sum,i)=&gt;sum+i.qty, 0);</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('cart-count').textContent = count;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">window.addEventListener('load', updateCartCount);</span></p>
+<p class="p1"><span class="s1">document.getElementById('search-input').addEventListener('input', (e) =&gt; {</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>const q = e.target.value.toLowerCase();</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>document.querySelectorAll('.product-card').forEach(card =&gt; {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const text = card.dataset.name.toLowerCase();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>card.style.display = text.includes(q) ? 'flex' : 'none';</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
+<p class="p1"><span class="s1">});</span></p>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="zh" class="ch"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;&lt;span class="lang-ch"&gt;</span><span class="s2">美味小吃鋪</span><span class="s1">&lt;/span&gt;&lt;span class="lang-en"&gt;Delicious Snacks&lt;/span&gt;&lt;/title&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>&lt;link rel="stylesheet" href="css/styles.css"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>&lt;header class="container"&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="logo"&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span class="lang-ch"&gt;</span><span class="s2">小吃鋪</span><span class="s1">&lt;/span&gt;&lt;span class="lang-en"&gt;Snack Shop&lt;/span&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;nav&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span>&lt;ul&gt;</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="index.html"&gt;&lt;span class="lang-ch"&gt;</span><span class="s2">首頁</span><span class="s1">&lt;/span&gt;&lt;span class="lang-en"&gt;Home&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="cart.html"&gt;&lt;span class="lang-ch"&gt;</span><span class="s2">購物車</span><span class="s1">&lt;/span&gt;&lt;span class="lang-en"&gt;Cart&lt;/span&gt; (&lt;span id="cart-count"&gt;0&lt;/span&gt;)&lt;/a&gt;&lt;/li&gt;</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="login.html"&gt;&lt;span class="lang-ch"&gt;</span><span class="s2">會員</span><span class="s1">&lt;/span&gt;&lt;span class="lang-en"&gt;Account&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;button class="lang-switch"&gt;&lt;span class="lang-ch"&gt;EN&lt;/span&gt;&lt;span class="lang-en"&gt;</span><span class="s2">中</span><span class="s1">&lt;/span&gt;&lt;/button&gt;&lt;/li&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>&lt;main class="container"&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- </span><span class="s2">搜尋</span><span class="s1"> --&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;input id="search-input" type="text" placeholder="</span><span class="s2">搜尋</span><span class="s1">… / Search…" style="width:100%; padding:0.5rem;"&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- </span><span class="s2">商品列表</span><span class="s1"> --&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="product-list"&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span>&lt;!-- </span><span class="s2">蛋餅</span><span class="s1"> --&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="product-card" data-name="</span><span class="s2">蛋餅</span><span class="s1"> / Egg Crepe"&gt;</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>&lt;img src="images/egg_crepe.jpg" alt="</span><span class="s2">蛋餅</span><span class="s1">"&gt;</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3&gt;&lt;span class="lang-ch"&gt;</span><span class="s2">蛋餅</span><span class="s1">&lt;/span&gt;&lt;span class="lang-en"&gt;Egg Crepe&lt;/span&gt;&lt;/h3&gt;</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="price"&gt;&lt;span class="lang-ch"&gt;NT$50&lt;/span&gt;&lt;span class="lang-en"&gt;US$1.50&lt;/span&gt;&lt;/div&gt;</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button class="btn" onclick="addToCart('egg','</span><span class="s2">蛋餅</span><span class="s1">',50)"&gt;</span></p>
+<p class="p8"><span class="s1"><span class="Apple-converted-space">          </span>&lt;span class="lang-ch"&gt;</span><span class="s2">加入購物車</span><span class="s1">&lt;/span&gt;&lt;span class="lang-en"&gt;Add to Cart&lt;/span&gt;</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span>&lt;!-- </span><span class="s2">同理再放</span><span class="s1"> </span><span class="s2">鐵板麵、蔥抓餅</span><span class="s1"> --&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span>&lt;!-- … --&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span>&amp;copy; 2025 &lt;span class="lang-ch"&gt;</span><span class="s2">美味小吃鋪</span><span class="s1">&lt;/span&gt;&lt;span class="lang-en"&gt;Delicious Snacks&lt;/span&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script src="js/lang.js"&gt;&lt;/script&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script src="js/cart.js"&gt;&lt;/script&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script src="js/search.js"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
